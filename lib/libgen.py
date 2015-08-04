@@ -6,13 +6,12 @@ import random
 import string
 import sqlite3
 
-class Gen():
 
+class Gen:
     def __init__(self):
         pass
 
-
-    def querydb(self, query, pathdb='../db/app.db'):
+    def querydb(self, query, pathdb='/home/dark/PycharmProjects/disposable-msg/db/app.db'):
         """
 
         :type self: object
@@ -23,20 +22,15 @@ class Gen():
         self.con.commit()
         self.cur.close()
 
-
     def gen_idsession(self):
         self.ids = ''
         for i in range(10):
-           self.ids += random.choice(string.ascii_lowercase)
+            self.ids += random.choice(string.ascii_lowercase)
         return self.ids
 
-
     def write_message(self, id, passwd, message):
-        self.querydb("INSERT INTO messages (pass, idsession, message) VALUES('%s', '%s', '%s');" )
+        self.querydb("INSERT INTO messages (pass, idsession, message) VALUES('%s', '%s', '%s')" % (passwd, id, message))
         # self.querydb("INSERT INTO messages (pass, idsession, message) VALUES(%s, %s, %s);" % (id, passwd, message))
-
-
-
 
     def read_message(self):
         pass

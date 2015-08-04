@@ -11,11 +11,13 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def index():
+    idsession = genlib.gen_idsession() + '-' + genlib.gen_idsession()
+    passwd = genlib.gen_idsession()
     if request.method == 'POST':
        if (request.form['message']):
-           print genlib.write_message(request.form['idsession'], request.form['passwd'], request.form['message'])
+           print genlib.write_message(passwd, idsession, request.form['message'])
 
-       return render_template('main.html', link='%s?idsession=%s&passwd=%s' % (request.base_url, genlib.gen_idsession() + '-' + genlib.gen_idsession(), genlib.gen_idsession()))
+       return render_template('main.html', link='%s?idsession=%s&passwd=%s' % (request.base_url, idsession, passwd))
 
     if (request.args.get('idsession', '') and  request.args.get('passwd', '')):
         ids = request.args.get('idsession', '')

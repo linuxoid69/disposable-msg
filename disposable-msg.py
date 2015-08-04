@@ -15,15 +15,15 @@ def index():
     passwd = genlib.gen_idsession()
     if request.method == 'POST':
        if (request.form['message']):
-           print genlib.write_message(passwd, idsession, request.form['message'])
+          genlib.write_message(passwd, idsession, request.form['message'])
 
        return render_template('main.html', link='%s?idsession=%s&passwd=%s' % (request.base_url, idsession, passwd))
 
-    if (request.args.get('idsession', '') and  request.args.get('passwd', '')):
-        ids = request.args.get('idsession', '')
-        pss = request.args.get('passwd', '')
-        message = 'test'
-        return render_template('main.html', message=message)
+    # if (request.args.get('idsession', '') and  request.args.get('passwd', '')):
+    #     ids = request.args.get('idsession', '')
+    #     pss = request.args.get('passwd', '')
+    #     message = 'test'
+    #     return render_template('main.html', message=message)
     return render_template('main.html')
 
 

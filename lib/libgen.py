@@ -9,6 +9,10 @@ import sqlite3
 
 class Gen:
     def __init__(self):
+        """
+
+        :rtype : object
+        """
         pass
 
     def querydb(self, query, pathdb='/home/dark/PycharmProjects/disposable-msg/db/app.db'):

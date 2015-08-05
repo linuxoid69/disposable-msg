@@ -1,0 +1,14 @@
+{% extends 'main.html'%}
+{% block form %}
+    <form method="post">
+
+        <input type="hidden" name="passwd">
+        <input type="hidden" name="idsession">
+        <div class="radius">
+            <textarea class='radius' , name="message" required placeholder="Enter you message...">{{ message }}</textarea>
+            <input class = 'button' type="submit" value="Generate">
+        </div>
+
+    </form>
+    <input  onClick="this.select();" class='link' type="url" value="{{ link }}">
+{% endblock %}

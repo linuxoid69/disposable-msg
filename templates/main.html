@@ -6,15 +6,7 @@
     <link href="static/main.css" rel="stylesheet">
 </head>
 <body>
-<b>{{ link }}</b>
-<form method="post">
-    <input type="submit" value="Generate">
-    <input type="hidden" name="passwd">
-    <input type="hidden" name="idsession">
-    <div class="radius">
-        <textarea class='radius' , name="message" required placeholder="Enter you message...">{{ message }}</textarea>
-    </div>
-</form>
-
+{% block form %}{% endblock %}
+{% block page404 %}{% endblock %}
 </body>
 </html>

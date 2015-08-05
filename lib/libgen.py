@@ -15,7 +15,7 @@ class Gen:
         """
         pass
 
-    def querydb(self, query, pathdb='/home/dark/PycharmProjects/disposable-msg/db/app.db'):
+    def querydb(self, query, pathdb='/home/rmt/PycharmProjects/disposable-msg/db/app.db'):
         """
 
         :type self: object
@@ -23,8 +23,11 @@ class Gen:
         self.con = sqlite3.connect(pathdb)
         self.cur = self.con.cursor()
         self.cur.execute(query)
+        self.fech = self.cur.fetchone()
         self.con.commit()
         self.cur.close()
+        if self.fech:
+           return self.fech[0]
 
     def gen_idsession(self):
         self.ids = ''
@@ -32,9 +35,11 @@ class Gen:
             self.ids += random.choice(string.ascii_lowercase)
         return self.ids
 
-    def write_message(self, id, passwd, message):
-        self.querydb("INSERT INTO messages (pass, idsession, message) VALUES('%s', '%s', '%s')" % (passwd, id, message))
-        # self.querydb("INSERT INTO messages (pass, idsession, message) VALUES(%s, %s, %s);" % (id, passwd, message))
+    def write_message(self, passwd, idsession, message):
+        self.querydb("INSERT INTO messages (pass, idsession, message) VALUES('%s', '%s', '%s')" % (passwd, idsession, message))
 
-    def read_message(self):
-        pass
+    def read_message(self, passwd, idsession):
+        return self.querydb("SELECT message FROM messages WHERE pass='%s' AND idsession='%s'" % (passwd, idsession))
+
+    def delete_message(self, passwd, idsession):
+        self.querydb("DELETE FROM messages WHERE pass='%s' AND idsession='%s'" % (passwd, idsession))

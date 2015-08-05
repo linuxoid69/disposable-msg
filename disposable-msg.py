@@ -19,11 +19,12 @@ def index():
 
        return render_template('main.html', link='%s?idsession=%s&passwd=%s' % (request.base_url, idsession, passwd))
 
-    # if (request.args.get('idsession', '') and  request.args.get('passwd', '')):
-    #     ids = request.args.get('idsession', '')
-    #     pss = request.args.get('passwd', '')
-    #     message = 'test'
-    #     return render_template('main.html', message=message)
+    if (request.args.get('idsession', '') and  request.args.get('passwd', '')):
+        ids = request.args.get('idsession', '')
+        pss = request.args.get('passwd', '')
+        message = genlib.read_message(pss, ids)
+        genlib.delete_message(pss, ids)
+        return render_template('main.html', message=message)
     return render_template('main.html')
 
 

@@ -2,16 +2,16 @@
 # -*- coding: utf-8 -*-
 __author__ = 'rmt'
 
-import random
-import string
 import sqlite3
+import os
 
 
 class Gen:
     def __init__(self):
         pass
 
-    def querydb(self, query, pathdb='/home/rmt/PycharmProjects/disposable-msg/db/app.db'):
+
+    def querydb(self, query, pathdb=(os.path.realpath('./') + '/db/app.db')):
         '''
         :param query: запрос в базу
         :param pathdb: путь к базе
@@ -25,16 +25,6 @@ class Gen:
         self.cur.close()
         if self.fech:
            return self.fech[0]
-
-    def gen_idsession(self):
-        '''
-
-        :return: генерит и возвращает id сессии
-        '''
-        self.ids = ''
-        for i in range(10):
-            self.ids += random.choice(string.ascii_lowercase)
-        return self.ids
 
     def write_message(self, passwd, idsession, message):
         '''
@@ -63,3 +53,17 @@ class Gen:
         :return:
         '''
         self.querydb("DELETE FROM messages WHERE pass='%s' AND idsession='%s'" % (passwd, idsession))
+
+    def create_db(self):
+        '''
+        Создаем базу если ее нет
+        :return: True если успешно созданна
+        '''
+        create_table = """CREATE TABLE messages (
+          id INTEGER PRIMARY KEY   AUTOINCREMENT,
+          pass text  NOT NULL,
+          idsession text  NOT NULL,
+          message longtext  not null
+        )"""
+
+        self.querydb(create_table)

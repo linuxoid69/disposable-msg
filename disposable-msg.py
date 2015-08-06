@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request,session
-from hashlib import md5
+import uuid
 from lib import libgen
+from hashlib import md5
 
 genlib = libgen.Gen()
 app = Flask(__name__)
@@ -9,8 +10,9 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET','POST'])
 def index():
-    idsession = genlib.gen_idsession() + '-' + genlib.gen_idsession()
-    passwd = genlib.gen_idsession()
+    idsession = uuid.uuid4()
+    pw = md5(str(idsession))
+    passwd = pw.hexdigest()
     if request.method == 'POST':
        if (request.form['message']):
           genlib.write_message(passwd, idsession, request.form['message'])
@@ -28,6 +30,10 @@ def index():
 
 
 
+# @app.route('/test', methods=['GET','POST'])
+# def index():
+#     return 'test'
+
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='10.5.5.10', port=8080)

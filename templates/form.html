@@ -6,9 +6,14 @@
         <input type="hidden" name="idsession">
         <div class="radius">
             <textarea class='radius' , name="message" required placeholder="Enter you message...">{{ message }}</textarea>
-            <input class = 'button' type="submit" value="Generate">
+            <table border="0">
+                <tr>
+                <td><input  type="submit" value="Generate"></td>
+                <td><input  onclick="this.select()" class="link" type="url" value="{{ link }}" readonly></td>
+                <td><input  type="hidden" value="Copy URL"></td>
+                </tr>
+            </table>
         </div>
 
     </form>
-    <input  onClick="this.select();" class='link' type="url" value="{{ link }}">
 {% endblock %}

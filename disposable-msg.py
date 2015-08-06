@@ -7,8 +7,7 @@ genlib = libgen.Gen()
 app = Flask(__name__)
 
 
-
-@app.route('/', methods=['GET','POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     idsession = uuid.uuid4()
     pw = md5(str(idsession))
@@ -27,12 +26,6 @@ def index():
         genlib.delete_message(pss, ids)
         return render_template('form.html', message=message)
     return render_template('form.html')
-
-
-
-# @app.route('/test', methods=['GET','POST'])
-# def index():
-#     return 'test'
 
 
 if __name__ == '__main__':

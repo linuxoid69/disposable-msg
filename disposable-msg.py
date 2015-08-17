@@ -11,7 +11,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if not path.isfile('db/app.db'):
-        print('no db')
+        genlib.create_db()
     idsession = uuid.uuid4()
     pw = md5(str(idsession))
     passwd = pw.hexdigest()

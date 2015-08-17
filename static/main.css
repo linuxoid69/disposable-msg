@@ -1,5 +1,4 @@
 body {
-
     background-color: #6796b4;
 }
 .radius {
@@ -16,10 +15,11 @@ body {
     word-wrap: break-word;
     resize: none;
     overflow: inherit;
+    margin-top: 1px;
 }
 .page {
-  max-width: 530px;
-  margin: 150px auto;
+    max-width: 530px;
+    margin: 150px auto;
 }
 .button {
     margin-right: 50%;
@@ -41,14 +41,22 @@ a {
     margin:  10px 140px;
     -moz-margin-start: 170px;
 }
-
-.link {
-     margin: 10px;
-     width: 493px;
-
+.version {
+    font-size: 10px;
+    float: right;
+    padding-top: 100px;
 }
 
-/*html, body, .page-wrapper{*/
-/*height: 100%;*/
-/*min-height: 100%;*/
-/*}*/
+.link {
+    padding: 10px;
+    border-radius: 10px;
+    width: 490px;
+}
+
+[type='submit']{
+    color: #6796b4;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+}

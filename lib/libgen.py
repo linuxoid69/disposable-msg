@@ -65,5 +65,5 @@ class Gen:
           idsession text  NOT NULL,
           message longtext  not null
         )"""
-
         self.querydb(create_table)
+        return True

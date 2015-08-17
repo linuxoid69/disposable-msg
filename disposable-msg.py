@@ -2,13 +2,16 @@ from flask import Flask, render_template, request,session
 import uuid
 from lib import libgen
 from hashlib import md5
-
+from os import path
 genlib = libgen.Gen()
 app = Flask(__name__)
 
-
+# if path.isfile('db/app.db1'):
+# print('no db')
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    if not path.isfile('db/app.db'):
+        print('no db')
     idsession = uuid.uuid4()
     pw = md5(str(idsession))
     passwd = pw.hexdigest()

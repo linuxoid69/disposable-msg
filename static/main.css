@@ -50,8 +50,12 @@ a {
 .link {
     padding: 10px;
     border-radius: 10px;
-    width: inherit;
+    width: 485px;
+    -moz-box-sizing: border-box;
     
+}
+td {
+    /*border: 1px solid black;*/
 }
 
 [type='submit']{

@@ -50,7 +50,8 @@ a {
 .link {
     padding: 10px;
     border-radius: 10px;
-    width: 490px;
+    width: inherit;
+    
 }
 
 [type='submit']{

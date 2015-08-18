@@ -3,6 +3,7 @@ import uuid
 from lib import libgen
 from hashlib import md5
 from os import path
+import config
 genlib = libgen.Gen()
 app = Flask(__name__)
 
@@ -32,4 +33,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+    app.run(debug=config.debug, host=config.host, port=config.port)

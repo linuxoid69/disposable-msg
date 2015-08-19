@@ -27,7 +27,7 @@ def index():
         message = genlib.read_message(pss, ids)
         if message == None:
             return render_template('page404.html')
-        genlib.delete_message(pss, ids)
+            genlib.delete_message(pss, ids)
         return render_template('form.html', message=message)
     return render_template('form.html')
 

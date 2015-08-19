@@ -65,17 +65,22 @@ td {
     text-decoration: underline;
     font-weight: bold;
 }
-#footer { /* Нижний блок */
-                /*background: #333; *//* Цвет фона */
-                padding: 5px; /* Поля вокруг текста */
-                color: #fff; /* Цвет текста */
-                clear: left; /* Отменяем действие float */
-                text-align:  center;
-                position: absolute;
+/*#footer { *//* Нижний блок */
+                /*background: #333; *//**//* Цвет фона */
+                /*padding: 5px; *//* Поля вокруг текста */
+                /*color: #fff; *//* Цвет текста */
+                /*clear: left; *//* Отменяем действие float */
+                /*text-align:  center;*/
+                /*position: absolute;*/
                 /*width: 100%;*/
-                bottom: 0%;
+                /*bottom: 0%;*/
 
-            }
+            /*}*/
+#footer {
+position: absolute;
+top: 0;
+}
+
 #footer p {
               font-size: 10px;
 }

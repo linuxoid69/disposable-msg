@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>disposable-msg</title>
-    <link href="static/main.css" rel="stylesheet">
+    <!-- <link href="static/main.css" rel="stylesheet"> -->
+    <link href="static/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
+    <script src="static/jquery/dist/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="static/bootstrap/dist/js/bootstrap.min.js"></script>
 {% block form %}{% endblock %}
 {% block page404 %}{% endblock %}
 {#{% block footer %}#}
 <div id="footer">
-    <p >version 1.0</p>
+    <p class="text-center navbar-fixed-bottom" >version 1.0</p>
 </div>
 {#{% endblock %}#}
 </body>

@@ -1,19 +1,21 @@
 {% extends 'main.html'%}
 {% block form %}
+<div class="container text-center col-xs-7 input-group">
     <form method="post">
-
         <input type="hidden" name="passwd">
+
         <input type="hidden" name="idsession">
-        <div class="radius">
-            <textarea class='radius' , name="message" required placeholder="Enter you message...">{{ message }}</textarea>
-            <table border="0">
-                <tr>
-                <td><input  type="submit" value="Generate"></td>
-                <td><input  onclick="this.select()" class="link" type="url" value="{{ link }}" readonly></td>
-                </tr>
-            </table>
-        </div>
+
+        <textarea class='form-control input-large',  name="message" required placeholder="Enter you message...">{{ message }}</textarea>
+
+        <input class="form-control" onclick="this.select()" class="link" type="url" value="{{ link }}" 
+            readonly>
+
+        <input class="btn btn-info form-control", type="submit", value="Generate">
 
     </form>
+</div>
+
+
 {% endblock %}
 {% block footer %}{% endblock %}

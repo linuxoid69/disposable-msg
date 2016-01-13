@@ -1,0 +1,27 @@
+{
+  "name": "disposable-msg",
+  "homepage": "https://github.com/linuxoid69/disposable-msg",
+  "authors": [
+    "rustam <rustam@my-itclub.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  },
+  "install": {
+    "path": {
+      "css": "static/css",
+      "js": "static/js"
+    }
+  }
+}

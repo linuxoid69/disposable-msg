@@ -16,7 +16,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "normalize-css": "normalize.css#~3.0.3"
   },
   "install": {
     "path": {

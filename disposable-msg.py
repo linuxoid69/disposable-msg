@@ -21,7 +21,7 @@ def index():
        if (request.form['message']):
           genlib.write_message(passwd, idsession, request.form['message'])
 
-       return render_template('form.html', link='%s?idsession=%s&passwd=%s' % (request.base_url, idsession, passwd))
+       return render_template('form.html', link='%s?idsession=%s&passwd=%s' % (request.base_url.replace('http://', 'https://'), idsession, passwd))
 
     if (request.args.get('idsession', '') and  request.args.get('passwd', '')):
         ids = request.args.get('idsession', '')
